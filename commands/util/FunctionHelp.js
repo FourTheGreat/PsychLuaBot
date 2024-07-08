@@ -16,7 +16,9 @@ const replies = {
   'debugPrint({1,2,10,5})--displays the table on screen.',
   '```',
   'observations:',
-  'tables can only'
+  'tables cannot be concatenated, so they can only be printed on their own.',
+  'likewise, booleans need to be converted using `tostring` if being concatenated. (debugPrint(text..tostring(boolean)))',
+  'functions CANNOT be printed.'
  ],
 	"setProperty":[
 		'`setProperty`:',
@@ -55,7 +57,11 @@ const replies = {
   '`makeLuaSprite( tag:String, image:String, x:Number, y:Number )`',
   'example usage:',
   '```lua',
-  'makeLuaSprite("sprite","num0",100,100)--makes a sprite named '
+  'makeLuaSprite("sprite","num0",100,100)--makes a sprite named "sprite", loading the image "num0", at the position x:100,y:100.',
+  'addLuaSprite("sprite")--makes the sprite visible onscreen.',
+  '```observations:',
+  'a sprite is not immediately visible upon creation. you must use `addLuaSprite` to make the sprite visible to the player.',
+  'when searching for the specified image, psych looks for `mods/currentModName/images/(image).png`, `mods/images/(image).png`, and then `assets/shared/images/(image).png`, in that order.'
  ]
 }
 const getText = (v) => {
@@ -81,7 +87,7 @@ module.exports = {
 		const e = interaction.options.getString('function')
 		const r = getText(e)
 		console.log(e)
-		await interaction.reply(r);
+		await interaction.reply({content:r,ephemeral:true});
 	},
  async autocomplete(interaction){
   const focusedValue = interaction.options.getFocused();
