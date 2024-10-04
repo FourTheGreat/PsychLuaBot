@@ -9,8 +9,6 @@ module.exports = {
    .setRequired(true)),
 
 	async execute(interaction) {
-		const r = ':p'
-		console.log(e)
 		await interaction.reply({content:interaction.options.getString('mensagem')});
 	},
 };
