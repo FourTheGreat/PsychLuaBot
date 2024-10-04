@@ -1,3 +1,4 @@
 {
+ "token": "${{shared.token}}",
  "clientId": "1234625712099561563"
 }
