@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('register')
-		.setDescription('')
+		.setDescription('registrar um personagem.')
 		.addStringOption(option =>option
    .setName('personagem')
    .setDescription('o nome do personagem.')
